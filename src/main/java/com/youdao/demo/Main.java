@@ -27,7 +27,7 @@ public class Main {
         String client = "fanyideskweb";
         long ctime = System.currentTimeMillis();
         String salt = String.valueOf(System.currentTimeMillis() + (10 * Math.random()));
-        String sign = md5("fanyideskweb" + text + salt + "Y2FYu%TNSbMCxc3t2u^XT").toLowerCase();
+        String sign = md5(client + text + salt + "Y2FYu%TNSbMCxc3t2u^XT").toLowerCase();
 
         Map<String, Object> params = new HashMap();
         params.put("i", text);
