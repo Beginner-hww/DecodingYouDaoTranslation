@@ -46,7 +46,8 @@ public class Main {
 
         header.put("Accept","application/json, text/javascript, */*; q=0.01");
         header.put("Referer","https://fanyi.youdao.com/");
-        header.put("Cookie", "OUTFOX_SEARCH_USER_ID=-938999356@10.108.160.17; OUTFOX_SEARCH_USER_ID_NCOO=400658508.6922812; _ga=GA1.2.1487965154.1584958612; _ntes_nnid=e8d66244bd6b0df63f7392b3c2fc2e23,1589266441531; UM_distinctid=179220c124170e-045cf5dcf62401-d7e163f-1fa400-179220c12426af; JSESSIONID=aaaLT76SDYdZDaq9ZgkQx; ___rl__test__cookies=1625818519508" + String.valueOf(ctime));
+        // TODO cookie需替换
+        header.put("Cookie", "OUTFOX_SEARCH_USER_ID=-938999356@; OUTFOX_SEARCH_USER_ID_NCOO=400658508.6922812; _ga=GA1.2.1487965154.1584958612; _ntes_nnid=e8d66244bd6b0df63f7392b3c2fc2e23,1589266441531; UM_distinctid=179220c124170e-045cf5dcf62401-d7e163f-1fa400-179220c12426af; JSESSIONID=aaaLT76SDYdZDaq9ZgkQx; ___rl__test__cookies=1625818519508" + String.valueOf(ctime));
         header.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
 
         PooledHttpResponse pooledHttpResponse = HttpClient.doPost(url, header, params, false);
