@@ -238,50 +238,6 @@ public class HttpClient {
         return doGet(url, Collections.EMPTY_MAP, params);
     }
 
-    // TODO 做sonos数据埋点用，后期删除
-    private volatile static long reqBadCount;
-    public static PooledHttpResponse doSonosGet(String url, Map<String, String> headers, Map<String, Object> params) {
-
-        httpClient = getHttpClient();
-        /**
-         * 构建GET请求头
-         */
-        String apiUrl = getUrlWithParams(url, params);
-        HttpGet httpGet = new HttpGet(apiUrl);
-
-        /**
-         * 设置header信息
-         */
-        if (headers != null && headers.size() > 0) {
-            for (Map.Entry<String, String> entry : headers.entrySet()) {
-                httpGet.addHeader(entry.getKey(), entry.getValue());
-            }
-        }
-
-        CloseableHttpResponse response = null;
-        try {
-            response = httpClient.execute(httpGet);
-
-            return getPooledResponseResult(response);
-        } catch (IOException e) {
-            reqBadCount++;
-//            // log.warn("httpClient execute get url:{}", url, e);
-        } finally {
-            if (response != null) {
-                try {
-                    response.close();
-                } catch (IOException e) {
-//                    // log.error("response close url:{}", url, e);
-                }
-            }
-        }
-        return null;
-    }
-
-    public static long getReqBadCount() {
-        return reqBadCount;
-    }
-
     public static PooledHttpResponse doGet(String url, Map<String, String> headers, Map<String, Object> params) {
 
         httpClient = getHttpClient();
