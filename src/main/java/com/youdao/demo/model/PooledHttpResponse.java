@@ -2,13 +2,6 @@ package com.youdao.demo.model;
 
 import java.util.Map;
 
-/**
- * @author : yifeng.jin
- * @Version : v1.0
- * @Description :HttpClient response
- * @Date : 2019-12-18 15:04
- * Copyright (C) : Lumi United Technology Co., Ltd
- */
 public class PooledHttpResponse {
 
     private int httpCode;
